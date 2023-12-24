@@ -1,0 +1,43 @@
+import React from "react";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
+import data1 from "../../data1";
+import "../Props/Props.css"
+// console.log(data1)
+
+const Props3 = () =>{
+    return(
+        <div>
+        <Header/>
+        <div className="container mt-5">
+            <div class="row">
+                {data1.map((eachComment)=>{
+                    const {id,name,body,email} = eachComment;
+                    return(
+                        <Itemlist key={id} id={id} name={name} email={email} body={body}/>
+                    )
+                })}
+            </div>
+        </div>
+        <Footer/>
+        </div>
+    )
+}
+
+const Itemlist = ({id,name,email,body}) =>{
+    // const {id, name, email, body} = props;
+    return(
+                    <div class="col-sm-4 mb-2 mt-2">
+                        <div class="card_main">
+                        <div class="card_body p-4 position-relative">
+                            <h4 className="position-absolute">{id}</h4>
+                            <h3 class="card_title">{name}</h3>
+                            <p className="email">{email}</p>
+                            <small class="card_text">{body}</small>
+                        </div>
+                        </div>
+                    </div>
+    )
+}
+
+export default Props3;
