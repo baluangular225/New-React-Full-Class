@@ -10,6 +10,8 @@ import Props2 from './MyFiles/Props/Props2';
 import Props3 from './MyFiles/Props/Props3';
 import Events1 from './MyFiles/Events/Events1';
 import { Imports } from './MyFiles/ImportsandExports/Imports';
+import Usestate1 from './MyFiles/Hooks/Usestate1';
+import Usestate2 from './MyFiles/Hooks/Usestate2';
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
           <Route path="/props3" element={<Props3/>}/>
           <Route path="/events1" element={<Events1/>}/>
           <Route path="/imports" element={<Imports/>}/>
+          <Route path="/usestate1" element={<Usestate1/>}/>
+          <Route path="/usestate2" element={<Usestate2/>}/>
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>
