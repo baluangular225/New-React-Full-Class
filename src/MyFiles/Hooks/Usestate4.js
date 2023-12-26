@@ -39,7 +39,7 @@ const Usestate4 = () =>{
         password:password
     };
     console.log(formObj);
-
+    
    }
 
     return(

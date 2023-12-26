@@ -20,6 +20,7 @@ const Usestate3 = () =>{
             <div className="row">
                                                                          {/* react trander operator */}
                 <button className="btn btn-primary" onClick={handleshow}>{showdata ? 'hide' : 'show'}</button>
+                {/* {showdata.length === 0 && <h4>Data is Hide</h4>} */}
                 {/* {showdata &&
                 <div className="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</div>
                 } */}

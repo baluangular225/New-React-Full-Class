@@ -15,6 +15,7 @@ import Usestate2 from './MyFiles/Hooks/Usestate2';
 import Usestatetwo from "./MyFiles/Hooks/Usestatetwo2";
 import Usestate3 from './MyFiles/Hooks/Usestate3';
 import Usestate4 from './MyFiles/Hooks/Usestate4';
+import Usestate5 from './MyFiles/Hooks/Usestate5';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/Usestatetwo" element={<Usestatetwo/>}/>
           <Route path="/usestate3" element={<Usestate3/>}/>
           <Route path="/usestate4" element={<Usestate4/>}/>
+          <Route path="/usestate5" element={<Usestate5/>}/>
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>
