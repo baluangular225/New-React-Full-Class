@@ -13,9 +13,10 @@ const Props1 = () =>{
             <div className="row">
             {
                 data.map((eachObj)=>{
+                    const {id, title, url, thumbnailUrl,} = eachObj;
                     return(
                         <div className="col-sm-4 text-center">
-                            <Props2 key={eachObj.id} title={eachObj.title} url={eachObj.url} thumbnailUrl={eachObj.thumbnailUrl} id={eachObj.id} />
+                            <Props2 key={id} title={title} url={url} thumbnailUrl={thumbnailUrl} id={id} />
                         </div>
                     );
                 })

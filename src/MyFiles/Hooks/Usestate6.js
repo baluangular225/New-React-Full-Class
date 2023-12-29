@@ -72,6 +72,30 @@ const handleEditStatus = (id) =>{
     setMessage(editbuleItem)
 }
 
+const handleEdit = (e) =>{
+    e.preventDefault();
+    const Todos = list.map((eachItem)=>{
+        if(eachItem.id === editItem.id){
+             return{
+                text:message.text,
+                id:editItem.id
+             }
+        }else{
+            return eachItem;
+        }
+    });
+    setList(Todos);
+    console.log(Todos);
+    setEdititem({
+        id:"",
+        isEdite:false
+    });
+    setMessage({
+        text:"",
+        id:''
+    })
+}
+
    return(
     <>
        <Header />
@@ -82,7 +106,7 @@ const handleEditStatus = (id) =>{
             <form>
                 <input type="text" className="form-control" id="name" name="name" value={message.text} onChange={handleChange} />
                 {
-                    editItem.isEdite ? (<button type="submit" className="btn btn-primary" onClick={handleSubmit}>Edit</button>) : 
+                    editItem.isEdite ? (<button type="submit" className="btn btn-primary" onClick={handleEdit}>Edit</button>) : 
                     (<button type="submit" className="btn btn-primary" onClick={handleSubmit}>Add</button>)
                 }
             </form>

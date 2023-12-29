@@ -3,79 +3,132 @@ import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 
 const Usestate5 = () =>{
-    // const newarray =[
+    // const newArray=[
     //     {
     //         text:"Hello",
-    //         id:"fvdfrbdbfgbf"
-    //    },
-    //    {
-    //         text:"Hello world",
-    //         id:"bfgfdbfgx"
-    //    }
+    //         id:"dcjd bcjdsbj"
+    //     },
+    //     {
+    //         text:"Hello World",
+    //         id:"cnsdjcnsdjncj"
+    //     }
     // ]
-    const [list,setList] = useState([]);
-    const [message, setMessage] = useState({
-         text:"",
-         id:""
-    });
-
-    const changemessage = (e) =>{
-        setMessage({
-            ...message,
-            text:e.target.value,
-        })
-    }
-
-    const handledelete = (id) =>{
-        // console.log(id);
-        const listfilter = list.filter((eachitem)=>{
-            return eachitem.id !== id;
-        })
-        // console.log(listfilter);
-        setList(listfilter);
-    }
-
-    const handlesubmit = (e) =>{
-       e.preventDefault();
-       let newTodo= {
-        text:message.text,
-        id:new Date().getTime().toString(),
-       }
-    //    console.log(newTodo);
-     setList([...list, newTodo]);
-     setMessage({
+    const [list,setList]= useState([]);
+    const [message,setMessage] = useState({
         text:"",
         id:""
+    });
+
+    const [edit, setedits] = useState({
+        id:'',
+        isEdit:false
     })
+
+    const handleMessage = (e) =>{
+        setMessage({
+            ...message,
+            text:e.target.value
+        })
     }
+
+    const handleDelete = (id) =>{
+       const listfilter = list.filter((eachItem)=>{
+          return eachItem.id !== id
+       })
+    //    console.log(listfilter);
+          setList(listfilter)
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const newObj={
+            text:message.text,
+            id:new Date().getTime().toString(),
+        }
+        console.log(newObj);
+        setList([...list, newObj]);
+        setMessage({
+            ...message,
+            text:'',
+            id:''
+        })
+    }
+
+    const handleEdit = (id) =>{
+        setedits({
+            ...edit,
+            id:id,
+            isEdit:true
+        });
+        const editvalue = list.find((eachItem)=> eachItem.id === id)
+        console.log(editvalue);
+        setMessage({
+            ...message,
+            text:editvalue.text,
+            id:editvalue.id
+        })
+    }
+
+    const handleEditing = (e) =>{
+        e.preventDefault();
+        const Todos = list.map((eachItem)=>{
+            if(eachItem.id === edit.id){
+                 return{
+                    text:message.text,
+                    id:edit.id
+                 }
+            }else{
+                return eachItem;
+            }
+        });
+        console.log(Todos);
+        setList(Todos);
+        setMessage({
+            text:'',
+            id:''
+        })
+        setedits({
+            id:'',
+            isEdit:false
+        })
+    }
+
 
     return(
         <>      
          <Header/>
          <div className="container">
-            <h3>useState 5 </h3>
-            {/* <p>https://www.youtube.com/watch?v=PdX9SA7id7M</p> */}
-
+            <h3 className="mt-5">useState 5 </h3>
+            
             <div className="">
-                <form>
-                    <input type="text" className="" name="message" id="message" value={message.text} onChange={changemessage}/>
-                    <button onClick={handlesubmit} type="submit">Add</button>
-                    <hr/>
-                    {list.length === 0 && <h4>There is no Data</h4>}
-                    {
-                        list.map((eachitem)=>{
-                            const {text, id} =eachitem;
-                           return(
-                            <div key={id} className="items">
-                                <h4>{text}</h4>
-                                <button onClick={()=>handledelete(id)}>Delete</button>
-                                <button>Edit</button>
+               <form>
+                  <input type="text" className="form-control" id="message" name="message" value={message.text} onChange={handleMessage} />
+                  {
+                    edit.isEdit ? (<button className="btn btn-primary" onClick={handleEditing}>Edit</button>) :
+                     (<button className="btn btn-info" onClick={handleSubmit}>Add</button>)
+                  }
+                  
+               </form>
+               <hr/>
+               {
+                list.length === 0 && <h4>there is no data in the list</h4>
+               }
+               <div className="row">
+                  {
+                    list.map((eachItem)=>{
+                        const {text, id} = eachItem;
+                        return(
+                            <div key={id} className="">
+                                <p>{text}</p>
+                                <button className="btn btn-info" onClick={()=>handleEdit(id)}>Edit</button>
+                                <button className="btn btn-danger" onClick={()=>handleDelete(id)}>Danger</button>
                             </div>
-                           )
-                        })
-                    }
-                </form>
+                        )
+                    })
+                  }
+               </div>
             </div>
+
         </div>
         <Footer/>
         </>

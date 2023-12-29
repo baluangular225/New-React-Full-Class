@@ -24,16 +24,17 @@ const Props3 = () =>{
     )
 }
 
-const Itemlist = ({id,name,email,body}) =>{
+// const Itemlist = ({id,name,email,body}) =>{
+    const Itemlist = (props) =>{
     // const {id, name, email, body} = props;
     return(
                     <div class="col-sm-4 mb-2 mt-2">
                         <div class="card_main">
                         <div class="card_body p-4 position-relative">
-                            <h4 className="position-absolute">{id}</h4>
-                            <h3 class="card_title">{name}</h3>
-                            <p className="email">{email}</p>
-                            <small class="card_text">{body}</small>
+                            <h4 className="position-absolute">{props.id}</h4>
+                            <h3 class="card_title">{props.name}</h3>
+                            <p className="email">{props.email}</p>
+                            <small class="card_text">{props.body}</small>
                         </div>
                         </div>
                     </div>
