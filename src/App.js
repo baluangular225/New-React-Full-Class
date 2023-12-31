@@ -20,6 +20,7 @@ import Usestate6 from './MyFiles/Hooks/Usestate6';
 import Usestate7 from './MyFiles/Hooks/Usestate7';
 import Useeffect1 from './MyFiles/Hooks/Useeffect/Useeffect1';
 import Useeffect2 from './MyFiles/Hooks/Useeffect/Useeffect2';
+import Useeffect3 from './MyFiles/Hooks/Useeffect/Useeffect3';
 import Usesteexp from './MyFiles/Hooks/Usesteexp';
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/usestate7" element={<Usestate7/>}/>
           <Route path="/useeffect1" element={<Useeffect1/>}/>
           <Route path="/useeffect2" element={<Useeffect2/>}/>
+          <Route path="/useeffect3" element={<Useeffect3/>}/>
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
           <Route path="*" element={<Nopage/>} />
       </Routes>
