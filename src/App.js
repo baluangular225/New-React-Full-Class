@@ -23,7 +23,8 @@ import Useeffect2 from './MyFiles/Hooks/Useeffect/Useeffect2';
 import Useeffect3 from './MyFiles/Hooks/Useeffect/Useeffect3';
 import Useeffect4 from './MyFiles/Hooks/Useeffect/Useeffect4';
 import Useeffect5 from './MyFiles/Hooks/Useeffect/Useeffect5';
-import UseContext1 from './MyFiles/Hooks/Usecontext/Usecontext1'
+import Usereducer from './MyFiles/Hooks/Usereducer/Usereducer';
+import UseContext1 from './MyFiles/Hooks/Usecontext/Usecontext1';
 import Usesteexp from './MyFiles/Hooks/Usesteexp';
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/useeffect4" element={<Useeffect4/>}/>
           <Route path="/useeffect5" element={<Useeffect5/>}/>
           <Route path="/useContext1" element={<UseContext1/>}/>
+          <Route path="/Usereducer" element={<Usereducer/>}/>
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
           <Route path="*" element={<Nopage/>} />
       </Routes>
