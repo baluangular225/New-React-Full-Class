@@ -35,6 +35,13 @@ const Usereducer = () =>{
     })
     }
 
+    const handleEdit = (id) =>{
+        dispatch({
+            type:"PERSON_UPDATE",
+            payLoad:id
+        })
+    }
+
     return(
         <div>
             <Header/>
@@ -49,6 +56,7 @@ const Usereducer = () =>{
                                 <h3>{firstname}</h3>
                                 <p>{email}</p>
                                 <button onClick={()=> handleDelete(id)} className="btn btn-danger">Delete</button>
+                                <button onClick={()=>handleEdit(id)} className="btn btn-info">Edit</button>
                             </div>
                         )
                     })
