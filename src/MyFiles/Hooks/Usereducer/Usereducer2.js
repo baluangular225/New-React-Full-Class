@@ -9,6 +9,12 @@ const reducer = (state, action) => {
       userData: action.payload,
     };
   }
+  if(action.type === "ONCLICK_EDIT"){
+    return{
+        ...state,
+        isEditing:action.payload
+    }
+  }
   if(action.type === "Loading"){
     return{
         ...state,
@@ -24,12 +30,7 @@ const reducer = (state, action) => {
         userData:newUser
      }
   }
-  if(action.type === "ONCLICK_EDIT"){
-    return{
-        ...state,
-        isEditing:action.payload
-    }
-  }
+  
 };
 
 const Usereducer2 = () => {
@@ -55,7 +56,7 @@ const Usereducer2 = () => {
     userData: [],
     isLoading: false,
     isError: { status: false, msg: "" },
-    isEditing:{status:false, id:'', name:'', email:''}
+    isEditing: { status: false, id: "", name: "", email: "" },
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -64,7 +65,7 @@ const Usereducer2 = () => {
      dispatch({type:'DELETE_PERSON', payload:id})
   }
 
-  const upDateData = () =>{
+  const updateData = () =>{
 
   }
 
@@ -79,7 +80,7 @@ const Usereducer2 = () => {
         <h3 className="mt-5 mb-3">Usereducer2 component</h3>
         <div className="row">
             {
-                state.isEditing?.status && <Formdatas id={state.isEditing.id} title={state.isEditing.title} email={state.isEditing.email} upDateData={upDateData} />
+                state.isEditing?.status && <Formdatas id={state.isEditing.id} comingTitle={state.isEditing.name} comingEmail={state.isEditing.email} updateData={updateData} />
             }
             {
                 state.isLoading && <h4 className="text-center">Loading...</h4>
@@ -104,7 +105,7 @@ const Usereducer2 = () => {
   );
 };
 
-const Formdatas = (id, comingTitle, comingEmail, upDateData) =>{
+const Formdatas = ({id, comingTitle, comingEmail, updateData}) =>{
 
   const [title, setTitle] = useState(comingTitle || "");
   const [email, setEmail] = useState(comingEmail || "");
