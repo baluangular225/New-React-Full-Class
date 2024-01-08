@@ -4,6 +4,8 @@ import Footer from "../../../Components/Footer";
 import loading from '../../../images/Loading-img.gif'
 
 const reducer = (state, action) =>{
+    console.log(state);
+    console.log(action);
      if(action.type === "USER_DATA"){
         return{
             ...state,

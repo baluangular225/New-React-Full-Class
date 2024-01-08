@@ -31,6 +31,10 @@ const Useeffect4 = () =>{
        fetchapi(currectUrl)
    },[seacrhing]);
 
+   if(loading){
+    return <h4 className="text-center">Loading...</h4>
+   }
+
     return(
         <div>
             <Header/>
@@ -40,7 +44,7 @@ const Useeffect4 = () =>{
                       <input type="text" className="form-control" id="search" name="search" value={seacrhing} onChange={(e)=> setSearching(e.target.value)} />
                    </form>
                 </div>
-                { loading && <h3 className="text-center">Loading....</h3>}
+                {/* { loading && <h3 className="text-center">Loading....</h3>} */}
                 { !loading &&
                     <div className="row">
                     {

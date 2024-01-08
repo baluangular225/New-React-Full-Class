@@ -28,6 +28,7 @@ import Usereducer1 from './MyFiles/Hooks/Usereducer/Usereducer1';
 import UseContext1 from './MyFiles/Hooks/Usecontext/Usecontext1';
 import Usereducer2 from './MyFiles/Hooks/Usereducer/Usereducer2';
 import Usereducer3 from './MyFiles/Hooks/Usereducer/Usereducer3';
+import Usereducer4 from './MyFiles/Hooks/Usereducer/Usereducer4';
 import Usesteexp from './MyFiles/Hooks/Usesteexp';
 
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/Usereducer1" element={<Usereducer1/>}/>
           <Route path="/Usereducer2" element={<Usereducer2/>}/>
           <Route path="/Usereducer3" element={<Usereducer3/>}/>
+          <Route path="/Usereducer4" element={<Usereducer4/>}/>
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
           <Route path="*" element={<Nopage/>} />
       </Routes>
