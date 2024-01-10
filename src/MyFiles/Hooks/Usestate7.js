@@ -102,7 +102,7 @@ const Usestate7 = () =>{
 
                  <div className="">
                     <form>
-                        <input type="text" className="form-control" id="message" name="message" value={message.text} onChange={changemessage} />
+                        <input type="text" className="form-control" id="message" name="message" value={message.text} onChange={changemessage} required />
                         {
                             edit.isEdit ? (<button  type="button" onClick={handleEditing} className="btn btn-primary mt-2">Edit</button>) : (<button  type="button" onClick={handleSubmit} className="btn btn-primary mt-2">Add</button>)
                         }

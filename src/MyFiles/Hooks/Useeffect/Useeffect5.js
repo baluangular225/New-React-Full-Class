@@ -41,6 +41,14 @@ useEffect(()=>{
     fetchapi(currectUrl)
 },[searching]);
 
+const handleDelete = (idDrink) =>{
+    // console.log(idDrink);
+    const deleteDrink = drinksData.filter((eachDrink)=>{
+        return eachDrink.idDrink !== idDrink
+    })
+    setDrinksdata(deleteDrink)
+}
+
     return(
         <div>
             <Header/>
@@ -65,12 +73,15 @@ useEffect(()=>{
                         <div key={idDrink} className="col-4 text-center mt-5">
                            <p><img src={strDrinkThumb} width="350px" alt={strDrinkThumb}/></p>
                            <p>{strDrink}</p>
+                           <button className="btn btn-danger" onClick={()=>handleDelete(idDrink)}>Delete</button>
+                           <button className="btn btn-info">Edit</button>
                         </div>
                        )
                     })
                     }
                     </div>
                 }
+                
                 
             </div>
             <Footer/>

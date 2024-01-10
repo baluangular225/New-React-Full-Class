@@ -93,7 +93,7 @@ const Usereducer4 = () =>{
     return(
         <div>
             <Header/>
-            <div className="container">
+            <div className="container mb-5">
                 <h4 className="mt-5 mb-3">Usereducer4 Component</h4>
               
                 <div className="row">

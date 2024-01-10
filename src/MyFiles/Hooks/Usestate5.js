@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 
 const Usestate5 = () =>{
     // const newArray=[
     //     {
-    //         text:"Hello",
+    //         name:"Hello",
     //         id:"dcjd bcjdsbj"
     //     },
     //     {
-    //         text:"Hello World",
+    //         name:"Hello World",
     //         id:"cnsdjcnsdjncj"
     //     }
     // ]
     const [list,setList]= useState([]);
     const [message,setMessage] = useState({
-        text:"",
+        name:"",
         id:""
     });
+
+    useEffect(() => {
+        // Fetch data from JSONPlaceholder API
+        fetch('https://jsonplaceholder.typicode.com/users')
+          .then((response) => response.json())
+          .then((data) => {
+            // Update the message state with the fetched data
+            setMessage({
+              name: data.name,
+              id: data.id,
+            });
+          })
+          .catch((error) => console.error('Error fetching data:', error));
+      }, []); // Empty dependency array ensures the effect runs only once on component mount
+    
 
     const [edit, setedits] = useState({
         id:'',
@@ -27,7 +42,7 @@ const Usestate5 = () =>{
     const handleMessage = (e) =>{
         setMessage({
             ...message,
-            text:e.target.value
+            name:e.target.value
         })
     }
 
@@ -42,14 +57,14 @@ const Usestate5 = () =>{
     const handleSubmit = (e) =>{
         e.preventDefault();
         const newObj={
-            text:message.text,
+            name:message.name,
             id:new Date().getTime().toString(),
         }
         console.log(newObj);
         setList([...list, newObj]);
         setMessage({
             ...message,
-            text:'',
+            name:'',
             id:''
         })
     }
@@ -64,7 +79,7 @@ const Usestate5 = () =>{
         console.log(editvalue);
         setMessage({
             ...message,
-            text:editvalue.text,
+            name:editvalue.name,
             id:editvalue.id
         })
     }
@@ -74,7 +89,7 @@ const Usestate5 = () =>{
         const Todos = list.map((eachItem)=>{
             if(eachItem.id === edit.id){
                  return{
-                    text:message.text,
+                    name:message.name,
                     id:edit.id
                  }
             }else{
@@ -84,7 +99,7 @@ const Usestate5 = () =>{
         console.log(Todos);
         setList(Todos);
         setMessage({
-            text:'',
+            name:'',
             id:''
         })
         setedits({
@@ -102,7 +117,7 @@ const Usestate5 = () =>{
             
             <div className="">
                <form>
-                  <input type="text" className="form-control" id="message" name="message" value={message.text} onChange={handleMessage} />
+                  <input type="name" className="form-control" id="message" name="message" value={message.name} onChange={handleMessage} />
                   {
                     edit.isEdit ? (<button className="btn btn-primary" onClick={handleEditing}>Edit</button>) :
                      (<button className="btn btn-info" onClick={handleSubmit}>Add</button>)
@@ -116,10 +131,10 @@ const Usestate5 = () =>{
                <div className="row">
                   {
                     list.map((eachItem)=>{
-                        const {text, id} = eachItem;
+                        const {name, id} = eachItem;
                         return(
                             <div key={id} className="">
-                                <p>{text}</p>
+                                <p>{name}</p>
                                 <button className="btn btn-info" onClick={()=>handleEdit(id)}>Edit</button>
                                 <button className="btn btn-danger" onClick={()=>handleDelete(id)}>Danger</button>
                             </div>

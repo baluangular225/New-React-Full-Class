@@ -1,0 +1,26 @@
+{
+    "Users":[
+        {
+            "id":1,
+            "name":"pawan balla",
+            "email":"baluangular225@gmail.com"
+        },
+        {
+            "id":2,
+            "name":"pawan kumar",
+            "email":"pavankumar225@gmail.com"
+        }
+    ],
+    "Employes":[
+        {
+            "id":1,
+            "name":"Venu",
+            "email":"venugopal@gmail.com"
+        },
+        {
+            "id":2,
+            "name":"bala swami",
+            "email":"bala@gmail.com"
+        }
+    ]
+}
