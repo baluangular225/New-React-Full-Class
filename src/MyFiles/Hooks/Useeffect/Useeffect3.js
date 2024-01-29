@@ -44,6 +44,7 @@ const Useeffect3 = () =>{
 
    const headingStyle = {
       marginBottom: '85px',
+      marginTop:'100px'
   };
     
     return(

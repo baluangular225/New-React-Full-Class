@@ -15,11 +15,13 @@ const Useeffect4 = () =>{
        setLoading(true);
     try {
         const responsive = await fetch(apiurl);
+        // console.log(responsive);
         const {drinks} = await responsive.json();
         console.log(drinks);
         setDrinks(drinks);
         setLoading(false);
     } catch (error) {
+         console.log(error);
          setLoading(false);
     }
    

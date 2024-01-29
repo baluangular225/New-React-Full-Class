@@ -13,6 +13,15 @@ const reducer = (state, action) =>{
             length:state.length -1,
         }
     }
+    if(action.type === "PERSON_DELETE"){
+        const deletePerson = state.data.filter((eachData)=>{
+            return eachData.id !== action.payLoad
+        })
+        return{
+            ...state,
+            data:deletePerson,
+        }
+    }
 }
 
 const Usereducer = () =>{

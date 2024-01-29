@@ -15,6 +15,23 @@ const reducer = (state, action) => {
         isEditing:action.payload
     }
   }
+  if(action.type === "UPDATING_USER"){
+    const newData = state.userData.map((eachUser)=>{
+        if(eachUser.id === action.payload.id){
+            return{
+                id:action.payload.id,
+                name:action.payload.name,
+                email:action.payload.email
+            }
+        }else{
+            return eachUser;
+        }
+    })
+    return{
+        ...state,
+        userData:newData
+    }
+ }
   if(action.type === "Loading"){
     return{
         ...state,
@@ -65,8 +82,9 @@ const Usereducer2 = () => {
      dispatch({type:'DELETE_PERSON', payload:id})
   }
 
-  const updateData = () =>{
-
+  const updateData = (id, name, email) =>{
+    dispatch({type:"UPDATING_USER", payload:{id, name, email}});
+    dispatch({type:"ONCLICK_EDIT", payload:{status:false, id:id, name, email}})
   }
 
 //   if(state.isLoading){
@@ -115,7 +133,7 @@ const Formdatas = ({id, comingTitle, comingEmail, updateData}) =>{
             <form>
                 <input type="text" className="col-4" id="title" name="title" value={title} onChange={(e)=>setTitle(e.target.value)} />
                 <input type="email" className="col-4" id="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                <input type="submit" className="col-4 btn btn-success" />
+                <button className="btn btn-primary border-0 col-2 rounded-0" onClick={() => updateData(id, title, email)}>Updated Data</button>
             </form> 
         </div>
     )

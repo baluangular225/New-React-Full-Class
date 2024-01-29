@@ -4,7 +4,14 @@ import Footer from "../../Components/Footer";
 
 const Usestate4 = () =>{
 
-   const [firstname,setFirstname] = useState('');
+    const newObj = {
+        name: "Pavan",
+        email: "Balu Naidu",
+        password: 28
+    };
+
+   const [data, setData] = useState([newObj]);
+   const [name,setFirstname] = useState('');
    const [email,setEmail] = useState('');
    const [password,setPassword] = useState('');
 
@@ -31,16 +38,32 @@ const Usestate4 = () =>{
 //   }
 // }
 
-   const handleSubmit = (e) =>{
-     e.preventDefault();
-    const formObj={
-        firstname:firstname,
-        email:email,
-        password:password
+const handleDelete = (id) => {
+  const deleteData = data.filter((eachData)=>{
+    return eachData.id !== id
+  })
+  setData(deleteData);
+};
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const formObj = {
+      name: name,
+      email: email,
+      password: password
     };
+  
     console.log(formObj);
-    
-   }
+  
+    // Use the spread operator to add the new form data to the existing data array
+    setData([...data, formObj]);
+  
+    // Optionally, clear the form fields after submission
+    setFirstname('');
+    setEmail('');
+    setPassword('');
+  };
 
     return(
         <>
@@ -51,7 +74,7 @@ const Usestate4 = () =>{
               <div className="row forms">
               <form onSubmit={handleSubmit}>
                         <div className="mb-3">
-                           <input type="text" className="form-control" id="name" name="name" value={firstname} onChange={(e)=>setFirstname(e.target.value)} />
+                           <input type="text" className="form-control" id="name" name="name" value={name} onChange={(e)=>setFirstname(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <input type="email" className="form-control" id="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
@@ -64,7 +87,27 @@ const Usestate4 = () =>{
                         </form>
               </div>
 
+              <div className="row ">
+                  {
+                     data.map((eachData) => {
+                      const {id, name, email, password} = eachData;
+                        return (
+                          <div key={id} className="col-4 mt-3">
+                            <div className="shadow p-3">
+                            <p>{name}</p>
+                            <p>{email}</p>
+                            <p>{password}</p>
+                            <button className="btn btn-danger" onClick={()=> handleDelete(id)}>Delete</button>
+                            </div>
+                          </div>
+                        );
+                      })
+                    }
+              </div>
+
            </div>
+
+           
          <Footer/>
         </>
     )
