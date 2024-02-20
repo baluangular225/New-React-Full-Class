@@ -23,6 +23,10 @@ import Usestate88 from './MyFiles/Hooks/Usestate88';
 import Usestate99 from './MyFiles/Hooks/Usestate99';
 import Usestate10 from './MyFiles/Hooks/Usestate10';
 import Usestate11 from './MyFiles/Hooks/Usestate11';
+import Usestate12 from './MyFiles/Hooks/Usestate12';
+import Usestate13 from './MyFiles/Hooks/Usestate13';
+import Usestate14 from './MyFiles/Hooks/Usestate14';
+import Usestate15 from './MyFiles/Hooks/Usestate15';
 import Useeffect1 from './MyFiles/Hooks/Useeffect/Useeffect1';
 import Useeffect2 from './MyFiles/Hooks/Useeffect/Useeffect2';
 import Useeffect3 from './MyFiles/Hooks/Useeffect/Useeffect3';
@@ -34,10 +38,22 @@ import Usereducer1 from './MyFiles/Hooks/Usereducer/Usereducer1';
 import UseContext1 from './MyFiles/Hooks/Usecontext/Usecontext1';
 import Usereducer2 from './MyFiles/Hooks/Usereducer/Usereducer2';
 import Usereducer3 from './MyFiles/Hooks/Usereducer/Usereducer3';
+import Usereducer5 from './MyFiles/Hooks/Usereducer/Usereducer5';
+import Usereducer6 from './MyFiles/Hooks/Usereducer/Usereducer6';
+import Usereducer7 from './MyFiles/Hooks/Usereducer/Usereducer7';
+import Usereducer8 from './MyFiles/Hooks/Usereducer/Usereducer8';
+import Usereducer9 from './MyFiles/Hooks/Usereducer/Usereducer9';
+import Usereducer10 from './MyFiles/Hooks/Usereducer/Usereducer10';
+import Usecustome1 from './MyFiles/CustomeHooks/Usecustome1';
+import Useexp1 from './MyFiles/CustomeHooks/Useexp1';
+import Finalapi1 from './MyFiles/CustomeHooks/Finalapi1';
+import Finalapi2 from './MyFiles/CustomeHooks/Finalapi2';
 // import Usereducer4 from './MyFiles/Hooks/Usereducer/Usereducer4';
 import Useref1 from './MyFiles/Hooks/Useref/Useref1';
 import Useref2 from './MyFiles/Hooks/Useref/Useref2';
 import Usesteexp from './MyFiles/Hooks/Usesteexp';
+import PageTitleOne from './MyFiles/CustomeHooks/PageTitleOne';
+import UsePageTitle from './MyFiles/CustomeHooks/UsePageTitle';
 
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
@@ -69,6 +85,10 @@ const App = () => {
           <Route path="/usestate99" element={<Usestate99/>} />
           <Route path="/usestate10" element={<Usestate10/>} />
           <Route path="/usestate11" element={<Usestate11/>} />
+          <Route path="/usestate12" element={<Usestate12/>} />
+          <Route path="/usestate13" element={<Usestate13/>} />
+          <Route path="/usestate14" element={<Usestate14/>} />
+          <Route path="/usestate15" element={<Usestate15/>} />
           <Route path="/useeffect1" element={<Useeffect1/>}/>
           <Route path="/useeffect2" element={<Useeffect2/>}/>
           <Route path="/useeffect3" element={<Useeffect3/>}/>
@@ -80,10 +100,22 @@ const App = () => {
           <Route path="/Usereducer1" element={<Usereducer1/>}/>
           <Route path="/Usereducer2" element={<Usereducer2/>}/>
           <Route path="/Usereducer3" element={<Usereducer3/>}/>
+          <Route path="/Usereducer5" element={<Usereducer5/>}/>
+          <Route path="/Usereducer6" element={<Usereducer6/>}/>
+          <Route path="/Usereducer7" element={<Usereducer7/>}/>
+          <Route path="/Usereducer8" element={<Usereducer8/>}/>
+          <Route path="/Usereducer9" element={<Usereducer9/>}/>
+          <Route path="/Usereducer10" element={<Usereducer10/>}/>
+          <Route path="/Usecustome1" element={<Usecustome1/>}/>
+          <Route path="/Useexp1" element={<Useexp1/>}/>
+          <Route path="/Finalapi1" element={<Finalapi1/>}/>
+          <Route path="/Finalapi2" element={<Finalapi2/>}/>
           <Route path="/Usereducer4" element={<LazyUsereducer4/>}/>
           <Route path="/Useref1" element={<Useref1/>}/>
           <Route path="/Useref2" element={<Useref2/>}/>
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
+          <Route path="/PageTitleOne" element={<PageTitleOne/>} />
+          <Route path="/UsePageTitle" element={<UsePageTitle/>} />
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>

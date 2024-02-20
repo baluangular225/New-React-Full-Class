@@ -137,8 +137,8 @@ const Editform = ({id, comingTitle, comingEmail, upDateData}) =>{
                     <input className="col-5 p-1" type="text" id="title" name="title" value={title} onChange={(e)=>setTitle(e.target.value)} />
                     <input className="col-5 p-1" type="email" id="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                     <button className="btn btn-primary border-0 col-2 rounded-0" onClick={() => upDateData(id, title, email)}>
-          update data
-        </button>
+                        update data
+                    </button>
                 </form>
             </div>
         </div>
