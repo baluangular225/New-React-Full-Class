@@ -58,6 +58,10 @@ import UsePageTitle from './MyFiles/CustomeHooks/UsePageTitle';
 import NavigationOtherPage from './MyFiles/RouterHooks/NavigationOtherPage';
 import Nastedexp1 from './MyFiles/RouterHooks/Nastedexp1';
 import Nastedexp2 from './MyFiles/RouterHooks/Nastedexp2';
+import Users from './MyFiles/DynamicRoutes/Users';
+import Userdetails from './MyFiles/DynamicRoutes/UserDetails';
+import Users1 from './MyFiles/DynamicRoutes/Users1';
+import UserDetails1 from './MyFiles/DynamicRoutes/UserDetails1';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -127,6 +131,10 @@ const App = () => {
             <Route path='Nastedexp1' element={<Nastedexp1/>} />
             <Route path='Nastedexp2' element={<Nastedexp2/>} />
           </Route>
+          <Route path='/Users' element={<Users/>} />
+          <Route path='/Users/:userId' element={<Userdetails/>} />
+          <Route path='/Users1' element={<Users1/>} />
+          <Route path='/Users1/:UserId' element={<UserDetails1/>} />
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>
