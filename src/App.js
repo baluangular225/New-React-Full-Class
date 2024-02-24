@@ -44,6 +44,7 @@ import Usereducer7 from './MyFiles/Hooks/Usereducer/Usereducer7';
 import Usereducer8 from './MyFiles/Hooks/Usereducer/Usereducer8';
 import Usereducer9 from './MyFiles/Hooks/Usereducer/Usereducer9';
 import Usereducer10 from './MyFiles/Hooks/Usereducer/Usereducer10';
+import Usereducer11 from './MyFiles/Hooks/Usereducer/Usereducer11'
 import Usecustome1 from './MyFiles/CustomeHooks/Usecustome1';
 import Useexp1 from './MyFiles/CustomeHooks/Useexp1';
 import Finalapi1 from './MyFiles/CustomeHooks/Finalapi1';
@@ -54,14 +55,18 @@ import Useref2 from './MyFiles/Hooks/Useref/Useref2';
 import Usesteexp from './MyFiles/Hooks/Usesteexp';
 import PageTitleOne from './MyFiles/CustomeHooks/PageTitleOne';
 import UsePageTitle from './MyFiles/CustomeHooks/UsePageTitle';
-
+import NavigationOtherPage from './MyFiles/RouterHooks/NavigationOtherPage';
+import Nastedexp1 from './MyFiles/RouterHooks/Nastedexp1';
+import Nastedexp2 from './MyFiles/RouterHooks/Nastedexp2';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
 
 const App = () => {
   return (
+   
     <Router>
+      
       <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
@@ -106,6 +111,7 @@ const App = () => {
           <Route path="/Usereducer8" element={<Usereducer8/>}/>
           <Route path="/Usereducer9" element={<Usereducer9/>}/>
           <Route path="/Usereducer10" element={<Usereducer10/>}/>
+          <Route path='/Usereducer11' element={<Usereducer11/>} />
           <Route path="/Usecustome1" element={<Usecustome1/>}/>
           <Route path="/Useexp1" element={<Useexp1/>}/>
           <Route path="/Finalapi1" element={<Finalapi1/>}/>
@@ -116,6 +122,11 @@ const App = () => {
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
           <Route path="/PageTitleOne" element={<PageTitleOne/>} />
           <Route path="/UsePageTitle" element={<UsePageTitle/>} />
+          <Route path='/NavigationOtherPage' element={<NavigationOtherPage/>} >
+            <Route index element={<Nastedexp1/>} />
+            <Route path='Nastedexp1' element={<Nastedexp1/>} />
+            <Route path='Nastedexp2' element={<Nastedexp2/>} />
+          </Route>
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>
