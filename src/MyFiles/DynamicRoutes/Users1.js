@@ -41,15 +41,21 @@ const Users1 = () => {
             <div className='container'>
                 <h3 className='mt-3 mb-3'>Users1 Component</h3>
                 <div className='row'>
-                    {users.map((user) => (
-                        <Link to={`/Users1/${user.id}`} key={user.id} className='col-4 col-xs-12'>
+               
+                    {users.map((user) => {
+                       const {id, name, email, website} = user;
+                       return(
+                        <Link to={`/Users1/${user.id}`} key={id} className='col-4 col-xs-12'>
                             <div className='shadow p-3 mb-3'>
-                                <p>{user.name}</p>
-                                <p>{user.email}</p>
-                                <p>{user.website}</p>
+                                <p>{name}</p>
+                                <p>{email}</p>
+                                <p>{website}</p>
                             </div>
                         </Link>
-                    ))}
+                        )
+                    })}
+
+
                 </div>
             </div>
             <Footer />

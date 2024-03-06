@@ -62,6 +62,9 @@ import Users from './MyFiles/DynamicRoutes/Users';
 import Userdetails from './MyFiles/DynamicRoutes/UserDetails';
 import Users1 from './MyFiles/DynamicRoutes/Users1';
 import UserDetails1 from './MyFiles/DynamicRoutes/UserDetails1';
+import About1 from './MyFiles/RouterHooks/About1';
+import About2 from './MyFiles/RouterHooks/About2';
+import Navigation1 from './MyFiles/RouterHooks/Navigation1';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -126,6 +129,11 @@ const App = () => {
           <Route path="/Usesteexp" element={<Usesteexp/>}/>
           <Route path="/PageTitleOne" element={<PageTitleOne/>} />
           <Route path="/UsePageTitle" element={<UsePageTitle/>} />
+          <Route path='/Navigation1' element={<Navigation1/>}>
+            <Route index element={<About1/>} />
+            <Route path='About1' element={<About1/>}/>
+            <Route path='About2' element={<About2/>} />
+          </Route>
           <Route path='/NavigationOtherPage' element={<NavigationOtherPage/>} >
             <Route index element={<Nastedexp1/>} />
             <Route path='Nastedexp1' element={<Nastedexp1/>} />

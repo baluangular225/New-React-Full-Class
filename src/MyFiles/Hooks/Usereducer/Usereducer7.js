@@ -12,6 +12,12 @@ const Usereducer7 = () =>{
                 userData: action.payLoad,
             };
         }
+        if(action.type === "LOADING"){
+            return{
+                ...state,
+                isLoading:action.payLoad
+            }
+        }
         if(action.type === "DELETE_USER"){
             const userDelete = state.userData.filter((eachData)=>{
                 return eachData.id !== action.payLoad
@@ -57,10 +63,12 @@ const Usereducer7 = () =>{
     }
 
     const apiFetch = async (apiUrl)=>{
+           dispatch({type:'LOADING', payLoad:true});
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
             dispatch({type:"FETCH_API", payLoad:data});
+            dispatch({type:'LOADING', payLoad:false});
         } catch (error) {
             console.log(error);
         }
