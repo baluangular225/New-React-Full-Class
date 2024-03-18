@@ -12,10 +12,11 @@ const Useeffect7 = () =>{
  const [loading, setLoading] = useState(false);
  const [isError, setIsError] = useState({ status: false, msg: "" });
  const [editId, setEditId] = useState(null);
- const [name, setName] = useState();
- const [email, setEmail] = useState();
- const [website, setWebsite] = useState();
- const [showForm, setShowForm] = useState(false)
+ const [name, setName] = useState('');
+ const [email, setEmail] = useState('');
+ const [website, setWebsite] = useState('');
+ const [showForm, setShowForm] = useState(false);
+ const [searching, setSearching] = useState('')
 
   const fetchApi = async (apiURL) => {
     setLoading(true);
@@ -35,6 +36,14 @@ const Useeffect7 = () =>{
         setIsError({ status: true, msg: error.message || 'Something went wrong' });
     }
   };
+
+  const handleSearchChange = (e) => {
+    setSearching(e.target.value);
+}
+
+const filteredList = userData.filter((item) =>
+item.name.toLowerCase().includes(searching.toLowerCase())
+);
 
   const handleDelete = (id) =>{
     const deleteUser = userData.filter((eachData)=>{
@@ -101,9 +110,15 @@ if(isError?.status){
                     </div>
                     )}
 
+                    <div className='row mt-5 mb-4'>
+                        <div className='shadow p-3'>
+                            <input type='text' className='form-control' id='searching' placeholder='Searching Cards' value={searching} onChange={handleSearchChange} />
+                        </div>
+                    </div>
+
                     <div className='row mt-5'>
                         {
-                            userData.map((eachUser)=>{
+                            filteredList.map((eachUser)=>{
                                 const {id, name, email, website} = eachUser;
                                 return(
                                     <div key={id} className='col-4 col-xs-12'>
