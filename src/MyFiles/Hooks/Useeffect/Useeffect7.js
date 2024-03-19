@@ -100,6 +100,7 @@ if(isError?.status){
         <div>
             <Header/>
                  <div className='container'>
+                 <h3>All Issues Resolved</h3>
                     
                     {showForm && (
                     <div className='shadow p-3 mt-5 mb-3'>
