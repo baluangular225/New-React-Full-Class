@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import Header from "../../../Components/Header";
 import Footer from "../../../Components/Footer";
 import Loader from "../../../images/Loading-img.gif"
+import { Link } from "react-router-dom";
 
 const Usereducer10 = () =>{
 
@@ -112,6 +113,7 @@ const Usereducer10 = () =>{
                                             <div className='d-grid gap-0 d-md-flex justify-content-md-end'>
                                             <button className='btn btn-danger rounded-0' onClick={()=> handleDelete(id)}>Delete</button>
                                             <button className='btn btn-info rounded-0' onClick={()=> dispatch({type:'ONCLICK_EDIT', payLoad:({status:true, id:id, name, email, website})})}>Edit</button>
+                                            <Link className="btn btn-primary rounded-0" to={`/Usereducer10/${id}`}>Details</Link>
                                         </div>
                                         </div>
                                     </div>
