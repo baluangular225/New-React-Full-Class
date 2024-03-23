@@ -1,15 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import Header from '../../../Components/Header';
 import Footer from '../../../Components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Usereducer12 = () =>{
-
-    const navigate = useNavigate();
-
-        const handleDetailsClick = (userId) => {
-            navigate(`/Usereducer12/${userId}`);
-        };
 
     const URL='https://jsonplaceholder.typicode.com/users';
 
@@ -120,7 +114,7 @@ const Usereducer12 = () =>{
                                         <button className='btn btn-danger rounded-0' onClick={()=> handleDelete(id)}>Delete</button>
                                         <button className='btn btn-info rounded-0' onClick={()=> dispatch({type:'ONCLICK_EDIT', payLoad:({status:true, id:id, name, email, website})})}>Edit</button>
                                         {/* Add button to navigate to details page */}
-                                        <button className='btn btn-primary rounded-0' onClick={() => handleDetailsClick(id)}>Details</button>
+                                        <Link to={`/Usereducer12/${eachUser.id}`} className='btn btn-primary rounded-0'>Details</Link>
                                     </div>
                                 </div>
                             </div>

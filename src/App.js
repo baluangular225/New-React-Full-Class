@@ -48,6 +48,7 @@ import Usereducer9 from './MyFiles/Hooks/Usereducer/Usereducer9';
 import Usereducer10 from './MyFiles/Hooks/Usereducer/Usereducer10';
 import Usereducer11 from './MyFiles/Hooks/Usereducer/Usereducer11';
 import Usereducer12 from './MyFiles/Hooks/Usereducer/Usereducer12';
+import Usereducer13 from './MyFiles/Hooks/Usereducer/Usereducer13';
 import Usecustome1 from './MyFiles/CustomeHooks/Usecustome1';
 import Useexp1 from './MyFiles/CustomeHooks/Useexp1';
 import Finalapi1 from './MyFiles/CustomeHooks/Finalapi1';
@@ -69,6 +70,9 @@ import About1 from './MyFiles/RouterHooks/About1';
 import About2 from './MyFiles/RouterHooks/About2';
 import Navigation1 from './MyFiles/RouterHooks/Navigation1';
 import NewUser from './MyFiles/DynamicRoutes/Newuser';
+import Userdata from './MyFiles/DynamicRoutes/Userdata';
+import Usestate77 from './MyFiles/Hooks/Usestate77';
+import Alldetails from './MyFiles/DynamicRoutes/Alldetails';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -99,6 +103,8 @@ const App = () => {
           <Route path="/usestate8" element={<LazyUsestate8/>}/>
           <Route path="/usestate88" element={<Usestate88/>} />
           <Route path="/usestate99" element={<Usestate99/>} />
+          <Route path='/usestate77' element={<Usestate77/>} />
+          <Route path='/usestate77/:userId' element={<Alldetails/>} />
           <Route path="/usestate10" element={<Usestate10/>} />
           <Route path="/usestate11" element={<Usestate11/>} />
           <Route path="/usestate12" element={<Usestate12/>} />
@@ -127,6 +133,8 @@ const App = () => {
           <Route path='/Usereducer11' element={<Usereducer11/>} />
           <Route path='/Usereducer12' element={<Usereducer12/>} />
           <Route path='/Usereducer12/:userId' element={<NewUser />} />
+          <Route path='/Usereducer13' element={<Usereducer13/>} />
+          <Route path='/Usereducer13/:userId' element={<Userdata/>} />
           <Route path="/Usecustome1" element={<Usecustome1/>}/>
           <Route path="/Useexp1" element={<Useexp1/>}/>
           <Route path="/Finalapi1" element={<Finalapi1/>}/>
