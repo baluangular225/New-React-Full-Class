@@ -5,17 +5,18 @@ import "../Hooks/Usestate.css";
 import loader from '../../images/Loading-img.gif';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 
 const Usestate11 = () => {
   const URL = "https://jsonplaceholder.typicode.com/users";
 
   const [list, setList] = useState([]);
   const [editid,setEditId] = useState(null);
-  const [name, setName] = useState();
-  const [email,setEmail] = useState();
-  const [website, setWebsite] = useState();
+  const [name, setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [website, setWebsite] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showEditForm, setShowEditForm] = useState(false)
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const fetchapi = async (apiurl) => {
     setLoading(true);
@@ -81,11 +82,12 @@ const Usestate11 = () => {
 
   useEffect(() => {
     fetchapi(URL);
-  }, []);
+}, []);
 
   if(loading){
     return <h4 className="text-center mt-5"><img src={loader} alt={loader} /></h4>
   }
+
 
   return (
     <div>
@@ -113,9 +115,10 @@ const Usestate11 = () => {
                   <p>{name}</p>
                   <p>{email}</p>
                   <p>{website}</p>
-                    <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button className="btn btn-danger" onClick={()=> handleDelete(id)}>Delete</button>
-                        <button className="btn btn-info" onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                    <div className="d-grid gap-0 d-md-flex justify-content-md-end">
+                        <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
+                        <button className="btn btn-info rounded-0" onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                        <Link className='btn btn-primary rounded-0' to={`/Usestate11/${eachList.id}`}>Details</Link>
                     </div>
                 </div>
               </div>

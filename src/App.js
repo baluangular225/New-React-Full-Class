@@ -76,6 +76,7 @@ import Alldetails from './MyFiles/DynamicRoutes/Alldetails';
 import Mydata from './MyFiles/DynamicRoutes/Mydata';
 import Usereducer14 from './MyFiles/Hooks/Usereducer/Usereducer14';
 import Mydetails from './MyFiles/DynamicRoutes/Mydetails';
+import Use11 from './MyFiles/CustomeHooks/Use11';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -110,6 +111,7 @@ const App = () => {
           <Route path='/usestate77/:userId' element={<Alldetails/>} />
           <Route path="/usestate10" element={<Usestate10/>} />
           <Route path="/usestate11" element={<Usestate11/>} />
+          <Route path='/usestate11/:userId' element={<Use11/>} />
           <Route path="/usestate12" element={<Usestate12/>} />
           <Route path="/usestate13" element={<Usestate13/>} />
           <Route path="/usestate14" element={<Usestate14/>} />
