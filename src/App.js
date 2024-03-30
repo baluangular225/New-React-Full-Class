@@ -83,6 +83,10 @@ import Usestate66 from './MyFiles/Hooks/Usestate66';
 import Use66 from './MyFiles/DynamicRoutes/Use66';
 import Usereducer16 from './MyFiles/Hooks/Usereducer/Usereducer16';
 import User16 from './MyFiles/CustomeHooks/User16';
+import Barchart1 from './MyFiles/Hooks/Chats/Barchart1';
+import Usereducer17 from './MyFiles/Hooks/Usereducer/Usereducer17';
+import User17 from './MyFiles/DynamicRoutes/User17';
+import Linechart from './MyFiles/Hooks/Chats/Linechart';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -156,6 +160,8 @@ const App = () => {
           <Route path='/Usereducer16' element={<Usereducer16/>} />
           <Route path='/Usereducer16/:userId' element={<User16/>} />
           <Route path="/Usecustome1" element={<Usecustome1/>}/>
+          <Route path='/Usereducer17' element={<Usereducer17/>} />
+          <Route path='/Usereducer17/:userId' element={<User17/>} />
           <Route path="/Useexp1" element={<Useexp1/>}/>
           <Route path="/Finalapi1" element={<Finalapi1/>}/>
           <Route path="/Finalapi2" element={<Finalapi2/>}/>
@@ -179,6 +185,8 @@ const App = () => {
           <Route path='/Users/:userId' element={<Userdetails/>} />
           <Route path='/Users1' element={<Users1/>} />
           <Route path='/Users1/:UserId' element={<UserDetails1/>} />
+          <Route path='/Barchart1' element={<Barchart1/>} />
+          <Route path='/Linechart' element={<Linechart/>} />
           <Route path="*" element={<Nopage/>} />
       </Routes>
   </Router>

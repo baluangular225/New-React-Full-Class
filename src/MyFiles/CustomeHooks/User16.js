@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
-import Details from "../../images/details.png"
+// import Details from "../../images/details.png"
+import Barchart1 from "../Hooks/Chats/Barchart1";
 
 const User16 = () =>{
 
@@ -36,7 +37,7 @@ const User16 = () =>{
                         {fullDetails ? (
                                 <div className="col-12">
                                    <div className="p-5">
-                                      <h1>All User Deatisls</h1>
+                                      <h1>All User Details</h1>
                                       <hr></hr>
                                       <p><b>Name:</b> {fullDetails.name}</p>
                                       <p><b>Email:</b> {fullDetails.email}</p>
@@ -50,8 +51,9 @@ const User16 = () =>{
                             <p>User Full Detail Loading...</p>
                         )}
                         </div>
-                        <div className="col-6 text-center">
-                          <img src={Details} alt={Details} width={350} />
+                        <div className="col-5 text-center">
+                          {/* <img src={Details} alt={Details} width={350} /> */}
+                          <Barchart1/>
                         </div>
                     </div>
                  </div>
