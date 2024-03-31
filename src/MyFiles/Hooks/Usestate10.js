@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import "../Hooks/Usestate.css"
+import { Link } from 'react-router-dom';
 
 const Usestate10 = () =>{
 
@@ -93,9 +94,10 @@ const Usestate10 = () =>{
                                 <p>{name}</p>
                                 <p>{email}</p>
                                 <p>{website}</p>
-                              <div className='d-grid gap-2 d-md-flex justify-content-md-end'>
-                                 <button className='btn btn-danger' onClick={()=> handleDelete(id)}>Delete</button>
-                                 <button className='btn btn-info' onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                              <div className='d-grid gap-0 d-md-flex justify-content-md-end'>
+                                 <button className='btn btn-danger rounded-0' onClick={()=> handleDelete(id)}>Delete</button>
+                                 <button className='btn btn-info rounded-0' onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                                 <Link className='btn btn-primary rounded-0' to={`/Usestate10/${eachItem.id}`}>Details</Link>
                               </div>
                              </div>
                             </div>
