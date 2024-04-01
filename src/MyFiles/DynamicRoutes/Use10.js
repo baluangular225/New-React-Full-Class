@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Chartref from "../Hooks/Chats/Chartref";
 
 const Use10 = () =>{
 
   const {userId} = useParams();
   const [myData, setMyData] = useState([]);
+
+  const navigate = useNavigate();
 
   const fetchApiData = async (id)=>{
     try {
@@ -39,6 +41,7 @@ const Use10 = () =>{
                                 <p><b>Website:</b> {myData.website}</p>
                                 <p><b>Phone:</b> {myData.phone}</p>
                                 <p><b>City:</b> {myData?.address?.city}</p>
+                                <button className="btn btn-primary rounded-0" onClick={()=> navigate(`/Usestate10`)}>Go Back</button>
                             </div>
                         </div>
                       ):(
