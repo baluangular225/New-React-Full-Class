@@ -37,19 +37,54 @@ const Usestate66 = () =>{
     }
  }
 
- const handleDelete = (id) =>{
-    const deletePhoto = userPhotos.filter((eachPhoto)=>{
-        return eachPhoto.id !== id
-    })
-    setUserPhotos(deletePhoto);
- }
+//  const handleDelete = (id) =>{
+//     const deletePhoto = userPhotos.filter((eachPhoto)=>{
+//         return eachPhoto.id !== id
+//     })
+//     setUserPhotos(deletePhoto);
+//  }
+
+const handleDelete = async (id) =>{
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/photos${id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type': 'application.json'
+            }
+        });
+        if(!response.ok){
+            const data = await response.json();
+            throw new Error(data.message || 'failed delete user');
+        }
+        setUserPhotos(userPhotos.filter(eachPhoto => eachPhoto.id !== id))
+    } catch (error) {
+        console.log('deleting user data', error.message);
+    }
+}
 
  const handleEdit = (id, title, url, thumbnailUrl) =>{
     setEditId(id);
     setTitle(title);
     setUrl(url);
     setThumbnailUrl(thumbnailUrl);
-    setShowForm(true)
+    setShowForm(true);
+
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type' : 'Application/json'
+        },
+        body: JSON.stringify({id,title,url,thumbnailUrl})
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update data');
+        }
+        // Handle successful response if needed
+    })
+    .catch(error=>{
+        console.log('Error Message ', error);
+    })
  }
 
  const updateData = () =>{
@@ -69,7 +104,7 @@ const Usestate66 = () =>{
  }
 
  useEffect(()=>{
-    fetchApi(URL)
+    fetchApi(URL);
  },[]);
 
  if(isLoading){

@@ -141,8 +141,8 @@ const UpdateData = async () => {
 
         if (!response.ok) {
             // Handle error response from the API
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Failed to update user');
+            const Data = await response.json();
+            throw new Error(Data.message || 'Failed to update user');
         }
 
         // If the request was successful, update your local state or UI as needed
