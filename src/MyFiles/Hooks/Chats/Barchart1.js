@@ -27,8 +27,8 @@ const Barchart1 = () => {
           {
             label: '# of Votes',
             data: [2, 9, 3, 5, 2, 3],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'green',
+            borderColor: 'green',
             borderWidth: 1,
           },
         ],

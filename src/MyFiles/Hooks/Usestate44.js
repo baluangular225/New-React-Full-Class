@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Loader from '../../images/Loading-img.gif'
+import { Link } from "react-router-dom";
 
 const Usestate55 = () =>{
 
@@ -14,16 +15,24 @@ const Usestate55 = () =>{
  const [email, setEmail] = useState('');
  const [website, setWebsite] = useState('');
  const [showForm, setShowForm] = useState(false);
+ const [isError, setIsError] = useState({status:false, msg:''})
 
  const fetchApi = async (apiUrl)=>{
     setIsLoading(true);
+    setIsError({status:false, msg:''});
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
         setMyData(data);
         setIsLoading(false);
+        setIsError({status:false, msg:''});
+        if(response.status === 404){
+            throw new Error('This API 404 Error please check API')
+        }
     } catch (error) {
-        console.log(error);
+        console.error('Error:', error); // Log any error that occurs
+        setIsLoading(false);
+        setIsError({ status: true, msg: error.message || 'Something went wrong' });
     }
  }
 
@@ -115,6 +124,10 @@ const Usestate55 = () =>{
     return <h3 className="text-center mt-5"><img src={Loader} alt={Loader} /></h3>
  }
 
+ if(isError?.status){
+    return <h3 className="text-center mt-5" style={{color:'red'}}>{isError?.msg}</h3>
+ }
+
     return(
         <div>
             <Header/>
@@ -142,6 +155,7 @@ const Usestate55 = () =>{
                                         <div className="d-grid gap-0 d-md-flex justify-content-md-end">
                                             <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
                                             <button className="btn btn-info rounded-0" onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                                            <Link className="btn btn-primary rounded-0" to={`/Usestate44/${eachData.id}`}>Details</Link>
                                         </div>
                                     </div>
                                 </div>
