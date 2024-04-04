@@ -132,7 +132,7 @@ const Usestate55 = () =>{
                    </div>
                     )}
 
-                    <div className='row'>
+                    <div className='row mt-5 mb-5'>
                         {userData.map((eachUser)=>{
                             const {id, name, email, website} = eachUser;
                             return(

@@ -88,10 +88,9 @@ import Usereducer17 from './MyFiles/Hooks/Usereducer/Usereducer17';
 import User17 from './MyFiles/DynamicRoutes/User17';
 import Linechart from './MyFiles/Hooks/Chats/Linechart';
 import Use10 from './MyFiles/DynamicRoutes/Use10';
+import Usestate44 from './MyFiles/Hooks/Usestate44';
 import Usestate55 from './MyFiles/Hooks/Usestate55';
 import Use55 from './MyFiles/DynamicRoutes/Use55';
-import Chartjs from './MyFiles/Hooks/Chats/Charts';
-import { Chart } from 'chart.js';
 import Charts from './MyFiles/Hooks/Chats/Charts';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
@@ -132,6 +131,7 @@ const App = () => {
           <Route path="/usestate12" element={<Usestate12/>} />
           <Route path="/usestate13" element={<Usestate13/>} />
           <Route path="/usestate14" element={<Usestate14/>} />
+          <Route path='/usestate44' element={<Usestate44/>} />
           <Route path="/usestate15" element={<Usestate15/>} />
           <Route path='/Usestate55' element={<Usestate55/>} />
           <Route path='/Usestate55/:userId' element={<Use55/>}/>
