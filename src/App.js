@@ -93,6 +93,8 @@ import Usestate55 from './MyFiles/Hooks/Usestate55';
 import Use55 from './MyFiles/DynamicRoutes/Use55';
 import Charts from './MyFiles/Hooks/Chats/Charts';
 import Use44 from './MyFiles/DynamicRoutes/Use44';
+import Usestate33 from './MyFiles/Hooks/Usestate33';
+import Use33 from './MyFiles/DynamicRoutes/Use33';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -131,6 +133,8 @@ const App = () => {
           <Route path='/usestate11/:userId' element={<Use11/>} />
           <Route path="/usestate12" element={<Usestate12/>} />
           <Route path="/usestate13" element={<Usestate13/>} />
+          <Route path='/usestate33' element={<Usestate33/>} />
+          <Route path='/usestate33/:userId' element={<Use33/>} />
           <Route path="/usestate14" element={<Usestate14/>} />
           <Route path='/usestate44' element={<Usestate44/>} />
           <Route path='/Usestate44/:userId' element={<Use44/>} />
