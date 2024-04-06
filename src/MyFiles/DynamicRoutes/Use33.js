@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Use33 = () =>{
 
   const {userId} = useParams();
   const [myUser, setMyUser] = useState([]);
+
+  const navigate = useNavigate();
 
   const fetchApi = async (id) =>{
     try {
@@ -38,6 +40,7 @@ const Use33 = () =>{
                                 <p><b>website: </b>{myUser.website}</p>
                                 <p><b>Phone: </b>{myUser.phone}</p>
                                 <p><b>City: </b>{myUser?.address?.city}</p>
+                                <button className="btn btn-primary rounded-0" onClick={()=> navigate(`/Usestate33`)}>Go Back</button>
                             </div>
                         </div>
                       ):(

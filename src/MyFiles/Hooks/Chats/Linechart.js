@@ -47,24 +47,23 @@ const Linechart = () =>{
           {
             label: 'Dataset 1',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            backgroundColor: 'rgb(255, 99, 132)',
+            backgroundColor: '#FF1E8E',
           },
           {
             label: 'Dataset 2',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            backgroundColor: 'rgb(75, 192, 192)',
+            backgroundColor: '#0070ad',
           },
           {
             label: 'Dataset 3',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            backgroundColor: 'rgb(53, 162, 235)',
+            backgroundColor: '#12abdb',
           },
         ],
       };
 
     return(
         <div>
-             <h3>Linechart Component</h3>
              <Bar options={options} data={data} />
         </div>
     )
