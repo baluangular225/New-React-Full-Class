@@ -28,43 +28,165 @@ const Usesatet88 = () => {
         }
     }
 
-    const handleDelete = (id) => {
-        const delteItem = list.filter((item)=>{
-            return item.id !== id
-        })
-        setList(delteItem)
+    // const handleDelete = (id) => {
+    //     const delteItem = list.filter((item)=>{
+    //         return item.id !== id
+    //     })
+    //     setList(delteItem)
+    // }
+
+    const handleDelete = async (id) =>{
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`,{
+                method:'DELETE',
+                headers:{
+                    'Content-Type' : 'Application/json'
+                },
+            });
+            if(!response.ok){
+                const data = await response.json();
+                throw new Error(data.message || 'Failed List Delete')
+            }
+            setList(list.filter(item=> item.id !== id));
+        } catch (error) {
+            console.log('Error Message', error);
+        }
     }
 
-    const handleEdit = (id, name, email, website, address) => {
+    const handleEdit = async (id, name, email, website, address) => {
         setEditId(id);
         setName(name);
         setEmail(email);
         setWebsite(website);
-        setAddress(address);
+        setAddress(address); // Extracting city from the address object
         setShowForm(true);
+         
+        fetch(`https://jsonplaceholder.typicode.com/users/${id}`,{
+            method:'PUT',
+            headers:{
+                'Content-Type' : 'Application/json'
+            },
+            body: JSON.stringify({id, name, email, website, address})
+        })
+        .then(response=>{
+            if(!response.ok){
+                throw new Error('Failed List Edit');
+            }
+        })
+        .catch(error=>{
+            console.log('Error Message', error);
+        })
+
     }
 
-    const handleUpdate = () => {
-        const updatedList = list.map((item) => {
-            if (item.id === editId) {
-                return {
-                    ...item,
+    // const handleUpdate = () => {
+    //     const updatedList = list.map((item) => {
+    //         if (item.id === editId) {
+    //             return {
+    //                 ...item,
+    //                 name: name,
+    //                 email: email,
+    //                 website: website,
+    //                 address: { ...item.address, city: address }
+    //             };
+    //         }
+    //         return item;
+    //     });
+    //     setEditId(null);
+    //     setName('');
+    //     setEmail('');
+    //     setWebsite('');
+    //     setAddress('');
+    //     setList(updatedList);
+    //     setShowForm(false);
+    // }
+
+    // const handleUpdate = async () =>{
+    //     const allList={
+    //             name: name,
+    //             email: email,
+    //             website: website,
+    //             address: address
+    //     }
+
+    //     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${editId}`,{
+    //         method:'PUT',
+    //         headers:{
+    //             'Content-Type' : 'Application/json'
+    //         },
+    //         body: JSON.stringify({allList})
+    //     })
+    //     if(!response.ok){
+    //         const listData = await response.json();
+    //         throw new Error(listData.message || 'Failed Update List');
+    //     }
+    //     const listUpdate = list.map((item)=>{
+    //         if(item.id === editId){
+    //             return{...item, ...allList}
+    //         }else{
+    //             return item;
+    //         }
+    //     })
+    //     setList(listUpdate);
+    //     setEditId(null);
+    //     setName('');
+    //     setEmail('');
+    //     setWebsite('');
+    //     setAddress('');
+    //     setShowForm(false);
+    // }
+    const handleUpdate = async () => {
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/users/${editId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: editId,
                     name: name,
                     email: email,
                     website: website,
-                    address: { ...item.address, city: address }
-                };
+                    address: {
+                        city: address
+                    }
+                })
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update list item');
             }
-            return item;
-        });
-        setEditId(null);
-        setName('');
-        setEmail('');
-        setWebsite('');
-        setAddress('');
-        setList(updatedList);
-        setShowForm(false);
+    
+            const updatedItem = await response.json();
+    
+            const updatedList = list.map((item) => {
+                if (item.id === editId) {
+                    return {
+                        ...item,
+                        name: updatedItem.name,
+                        email: updatedItem.email,
+                        website: updatedItem.website,
+                        address: {
+                            ...item.address,
+                            city: updatedItem.address.city
+                        }
+                    };
+                }
+                return item;
+            });
+    
+            setList(updatedList);
+            setEditId(null);
+            setName('');
+            setEmail('');
+            setWebsite('');
+            setAddress('');
+            setShowForm(false);
+        } catch (error) {
+            console.error('Error updating list item:', error);
+        }
     }
+    
 
     useEffect(() => {
         fetchApi(URL);
