@@ -81,8 +81,8 @@ const Usestate22 = () =>{
 
  const updateData = async () =>{
 
-    if(!name || !email || website){
-        setErrorForm('ALL Form Fields Required');
+    if (!name || !email || !website) { // Fixed condition
+        setErrorForm('ALL Form Fields Required'); // Set error message using setErrorForm
         return;
     }
 
@@ -141,7 +141,7 @@ if(isError?.status){
                      <input type="text" className="form-control mb-2" name="name" value={name} onChange={(e)=> setName(e.target.value)} />
                      <input type="email" className="form-control mb-2" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
                      <input type="text" className="form-control mb-2" name="website" value={website} onChange={(e)=> setWebsite(e.target.value)} />
-                     {erroForm && <p style={{color:'red'}}>{erroForm}</p>}
+                     {erroForm && <p style={{ color: 'red' }}>{erroForm}</p>}
                      <input type="submit" className="btn btn-primary mb-2" onClick={()=> updateData(editId)} />
                  </div>
                  )}
