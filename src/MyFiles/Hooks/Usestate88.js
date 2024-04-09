@@ -12,19 +12,26 @@ const Usesatet88 = () => {
     const [website, setWebsite] = useState('');
     const [address, setAddress] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isError, setIsError] = useState({status:false, msg:''});
     const [showForm, setShowForm] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
     const fetchApi = async (apiUrl) => {
         setLoading(true);
+        setIsError({status:false, msg:''});
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
             setList(data);
             setLoading(false);
+            setIsError({status:false, msg:''});
+            if(response.status === 404){
+                throw new Error('Response Failed 404 API')
+            }
         } catch (error) {
             console.log(error);
             setLoading(false);
+            setIsError({status:true, msg: error.message || 'something went wrong'});
         }
     }
 
@@ -78,63 +85,7 @@ const Usesatet88 = () => {
         })
 
     }
-
-    // const handleUpdate = () => {
-    //     const updatedList = list.map((item) => {
-    //         if (item.id === editId) {
-    //             return {
-    //                 ...item,
-    //                 name: name,
-    //                 email: email,
-    //                 website: website,
-    //                 address: { ...item.address, city: address }
-    //             };
-    //         }
-    //         return item;
-    //     });
-    //     setEditId(null);
-    //     setName('');
-    //     setEmail('');
-    //     setWebsite('');
-    //     setAddress('');
-    //     setList(updatedList);
-    //     setShowForm(false);
-    // }
-
-    // const handleUpdate = async () =>{
-    //     const allList={
-    //             name: name,
-    //             email: email,
-    //             website: website,
-    //             address: address
-    //     }
-
-    //     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${editId}`,{
-    //         method:'PUT',
-    //         headers:{
-    //             'Content-Type' : 'Application/json'
-    //         },
-    //         body: JSON.stringify({allList})
-    //     })
-    //     if(!response.ok){
-    //         const listData = await response.json();
-    //         throw new Error(listData.message || 'Failed Update List');
-    //     }
-    //     const listUpdate = list.map((item)=>{
-    //         if(item.id === editId){
-    //             return{...item, ...allList}
-    //         }else{
-    //             return item;
-    //         }
-    //     })
-    //     setList(listUpdate);
-    //     setEditId(null);
-    //     setName('');
-    //     setEmail('');
-    //     setWebsite('');
-    //     setAddress('');
-    //     setShowForm(false);
-    // }
+    
     const handleUpdate = async () => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/users/${editId}`, {
@@ -200,6 +151,10 @@ const Usesatet88 = () => {
         return <h3 className="text-center"><img src={Loader} alt="Loading" /></h3>;
     }
 
+    if(isError?.status){
+        return <h3 className="text-center mt-5" style={{color:'red'}}>{isError?.msg}</h3>
+    }
+
     return (
         <div>
             <Header />
@@ -216,7 +171,7 @@ const Usesatet88 = () => {
                     </div>
                 )}
                 <div className="row mt-4">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <input type="text" className="form-control" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search by name" />
                     </div>
                 </div>

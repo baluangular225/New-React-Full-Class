@@ -85,14 +85,55 @@ const Usereducer13 = () =>{
 
  const [state, dispatch] = useReducer(reducer, initinalState);
 
- const handleDelete = (id) =>{
-    dispatch({type:"DELETE_U", payLoad:id});
- }
+//  const handleDelete = (id) =>{
+//     dispatch({type:"DELETE_U", payLoad:id});
+//  }
 
- const updateData = (id, name, email, website) =>{
-    dispatch({type:'UPDATE_DATA', payLoad:{id:id, name:name, email:email, website:website}});
-    dispatch({type:'ONCLICK_EDIT', payLoad:({status:false, id:'', name:'', email:'', website:''})})
- }
+const handleDelete = async (id) => {
+    try {
+        const response = await fetch(`${URL}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        dispatch({ type: "DELETE_U", payLoad: id });
+    } catch (error) {
+        console.error('Error deleting data:', error);
+    }
+}
+
+//  const updateData = (id, name, email, website) =>{
+//     dispatch({type:'UPDATE_DATA', payLoad:{id:id, name:name, email:email, website:website}});
+//     dispatch({type:'ONCLICK_EDIT', payLoad:({status:false, id:'', name:'', email:'', website:''})})
+//  }
+
+const updateData = async (id, name, email, website) => {
+    try {
+        
+        const response = await fetch(`${URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id, name, email, website })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        dispatch({ type: 'UPDATE_DATA', payLoad: { id, name, email, website } });
+        dispatch({ type: 'ONCLICK_EDIT', payLoad: { status: false, id: '', name: '', email: '', website: '' } });
+    } catch (error) {
+        console.error('Error updating data:', error);
+    }
+}
 
     return(
         <div>
