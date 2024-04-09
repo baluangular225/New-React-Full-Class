@@ -2,66 +2,61 @@ import React, { useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 
-const Usepost = () => {
+const Usepost1 = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [website, setWebsite] = useState('');
-    const [errorform, setErrorForm] = useState(false);
+    const [formError, setFormError] = useState(false);
 
-    const allData = { name, email, website };
+    const alldata = { name, email, website };
 
-    const formsubmit = async (e) => {
+    const submitform = async (e) => {
         e.preventDefault();
 
         if (!name || !email || !website) {
-            setErrorForm('All inputs are required');
+            setFormError('ALL Fields are Required');
             return;
         }
 
-        setErrorForm(false); // Reset error message
+        setFormError(false);
 
-        console.log(allData);
+        console.log(alldata);
 
-        const response = await fetch('http://localhost:3333/Users/', {
+        const response = await fetch('http://localhost:3333/Users', {
             method: 'POST',
             headers: {
-                'Content-Type': 'Application/json'
+                'Content-Type': 'application/json' // Corrected MIME type
             },
-            body: JSON.stringify({allData}),
+            body: JSON.stringify(alldata) // Removed unnecessary object wrapping
         });
 
         if (response.ok) {
             setName('');
             setEmail('');
             setWebsite('');
-            // Show alert message
             alert('Form submitted successfully!');
         } else {
-            // Handle error cases if needed
             alert('Form submission failed!');
         }
-    };
+    }
 
     return (
         <div>
             <Header />
             <div className="container">
-                <h3 className="mt-3 mb-3">Usepost Component</h3>
-
-                <div className="shadow p-3 mt-4 mb-4">
-                    <form onSubmit={formsubmit}>
+                <div className="shadow p-3 mt-5">
+                    <form onSubmit={submitform}>
                         <input type="text" className="form-control mb-2" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                         <input type="email" className="form-control mb-2" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="text" className="form-control mb-2" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} />
-                        {errorform && <p style={{ color: "red" }}>{errorform}</p>}
-                        <button type="submit" className="btn btn-primary mb-2">Submit</button>
+                        {formError && <p className="" style={{ color: 'red' }}>{formError}</p>}
+                        <input type="submit" className="btn btn-primary mb-2" />
                     </form>
                 </div>
-
             </div>
             <Footer />
         </div>
     );
-};
+}
 
-export default Usepost;
+export default Usepost1;
