@@ -85,6 +85,36 @@
       "name": "React My Life",
       "email": "baluangular225@gmail.com",
       "website": "Capgemini.com"
+    },
+    {
+      "id": "229d",
+      "userDetails": {
+        "name": "React My Life",
+        "email": "baluangular225@gmail.com",
+        "website": "react.org"
+      }
+    },
+    {
+      "id": "c54c",
+      "userDetails": {
+        "name": "React World Wide",
+        "email": "balunew225@gmail.com",
+        "website": "balunaidu.org"
+      }
+    },
+    {
+      "id": "b8e7",
+      "userDetails": {
+        "name": "This is My New Data",
+        "email": "mynewdata225@gmail.com",
+        "website": "mydata.org"
+      }
+    },
+    {
+      "id": "7d87",
+      "name": "This is Update Data",
+      "email": "updatedata225@gmail.com",
+      "website": "updatedata.org"
     }
   ],
   "Employes": [

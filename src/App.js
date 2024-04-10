@@ -103,6 +103,9 @@ import Usepost from './MyFiles/Hooks/Usepost';
 import Usestate20 from './MyFiles/Hooks/Usestate20';
 import Use20 from './MyFiles/DynamicRoutes/Use20';
 import Usepost1 from './MyFiles/Hooks/Usepost1';
+import Usestate104 from './MyFiles/Hooks/Usestate104';
+import Use104 from './MyFiles/DynamicRoutes/Use104';
+import Usepost2 from './MyFiles/Hooks/Usepost2';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -124,6 +127,9 @@ const App = () => {
           <Route path="/imports" element={<Imports/>}/>
           <Route path='/usepost' element={<Usepost/>} />
           <Route path='/usepost1' element={<Usepost1/>} />
+          <Route path='/usepost2' element={<Usepost2/>} />
+          <Route path='/usestate104' element={<Usestate104/>} />
+          <Route path='/usestate104/:userId' element={<Use104/>} />
           <Route path="/usestate1" element={<Usestate1/>}/>
           <Route path="/usestate2" element={<Usestate2/>}/>
           <Route path="/Usestatetwo" element={<Usestatetwo/>}/>
