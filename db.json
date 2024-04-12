@@ -115,6 +115,18 @@
       "name": "This is Update Data",
       "email": "updatedata225@gmail.com",
       "website": "updatedata.org"
+    },
+    {
+      "id": "98a6",
+      "name": "React My Life",
+      "email": "baluangular225@gmail.com",
+      "website": "react.org"
+    },
+    {
+      "id": "bb1b",
+      "name": "React My Life",
+      "email": "baluangular225@gmail.co",
+      "website": "react.org"
     }
   ],
   "Employes": [
