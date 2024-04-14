@@ -107,6 +107,10 @@ import Usestate104 from './MyFiles/Hooks/Usestate104';
 import Use104 from './MyFiles/DynamicRoutes/Use104';
 import Usepost2 from './MyFiles/Hooks/Usepost2';
 import Usepost3 from './MyFiles/Hooks/Usepost3';
+import Usepost104 from './MyFiles/Hooks/Usepost104';
+import Employee1 from './MyFiles/CustomeHooks/Employee1';
+import Employee2 from './MyFiles/CustomeHooks/Employee2';
+import UseEmp from './MyFiles/CustomeHooks/UseEmp';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -130,6 +134,7 @@ const App = () => {
           <Route path='/usepost1' element={<Usepost1/>} />
           <Route path='/usepost2' element={<Usepost2/>} />
           <Route path='/usepost3' element={<Usepost3/>} />
+          <Route path='/usepost104' element={<Usepost104/>} />
           <Route path='/usestate104' element={<Usestate104/>} />
           <Route path='/usestate104/:userId' element={<Use104/>} />
           <Route path="/usestate1" element={<Usestate1/>}/>
@@ -204,6 +209,9 @@ const App = () => {
           <Route path="/Useexp1" element={<Useexp1/>}/>
           <Route path="/Finalapi1" element={<Finalapi1/>}/>
           <Route path="/Finalapi2" element={<Finalapi2/>}/>
+          <Route path='/Employee1' element={<Employee1/>} />
+          <Route path='/Employee2' element={<Employee2/>} />
+          <Route path='/UseEmp' element={<UseEmp/>} />
           <Route path="/Usereducer4" element={<LazyUsereducer4/>}/>
           <Route path="/Useref1" element={<Useref1/>}/>
           <Route path="/Useref2" element={<Useref2/>}/>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import Loader from '../../images/Loading-img.gif'
-import { Line } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
 
 const Usestate55 = () =>{

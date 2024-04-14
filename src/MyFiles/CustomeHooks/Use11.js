@@ -38,7 +38,7 @@ const Use11 = () => {
                             <p>Website: {userDetails.website}</p>
                             <p>Phone: {userDetails.phone}</p>
                             {/* Check if address exists before accessing its properties */}
-                            <p>Address: {userDetails.address ? userDetails.address.city : 'N/A'}</p>
+                            <p>Address: {userDetails?.address?.city}</p>
                             <button className='btn btn-primary rounded-0' onClick={()=> navigate(`/Usestate11`)}>Go Back</button>
                         </div>
                     ) : (

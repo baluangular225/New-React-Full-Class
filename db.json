@@ -145,6 +145,18 @@
       "name": "React is Powerfull Language",
       "email": "reactpowerful123@gail.com",
       "website": "react.in"
+    },
+    {
+      "id": "6a00",
+      "name": "React My Life",
+      "email": "baluangular225@gmail.com",
+      "website": "react.org"
+    },
+    {
+      "id": 15,
+      "name": "balla",
+      "email": "baluangular225@gmail.com",
+      "website": "Capgemini.com"
     }
   ],
   "Employes": [
@@ -156,6 +168,18 @@
     {
       "id": 2,
       "name": "bala swami",
+      "email": "bala@gmail.com"
+    }
+  ],
+  "Admin": [
+    {
+      "id": 1,
+      "name": "pavan",
+      "email": "pavan@gmail.com"
+    },
+    {
+      "id": 1,
+      "name": "swami",
       "email": "bala@gmail.com"
     }
   ]

@@ -41,6 +41,7 @@ const Use104 = () =>{
                          <p><b>Phone: </b>{data.phone}</p>
                          <p><b>City: </b>{data?.address?.city}</p>
                          <button className="btn btn-primary rounded-0" onClick={()=> navigate(`/Usestate104`)}>Go Back</button>
+                         <button className="btn btn-info rounded-0" onClick={()=> navigate(`/Usepost104`)}>Usepost104</button>
                       </div>
                      ):(
                       <p>Use104 Show All Details Loading...</p>
