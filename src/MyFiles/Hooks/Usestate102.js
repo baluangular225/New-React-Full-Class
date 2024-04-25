@@ -26,10 +26,13 @@ const Usestate102 = () =>{
         setMyData(data);
         setLoading(false);
         setIsError({status:false, msg:''});
+        if(responsive.status === 404){
+         throw new Error('Please check the API 404')
+        }
      } catch (error) {
         console.log('Error Message', error);
         setLoading(false);
-        setIsError({status:true, msg:'something went wrong'});
+        setIsError({status:true, msg: error.message || 'something went wrong'});
      }
    }
 
