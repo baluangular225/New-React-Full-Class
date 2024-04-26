@@ -123,6 +123,10 @@ import Userpost18 from "./MyFiles/Hooks/Usereducer/Userpost18"
 import Usereducer19 from './MyFiles/Hooks/Usereducer/Usereducer19';
 import User19 from './MyFiles/DynamicRoutes/User19';
 import Userpost19 from './MyFiles/Hooks/Usereducer/Userpost19';
+import Usereducer20 from './MyFiles/Hooks/Usereducer/Usereducer20';
+import AdminUser1 from './MyFiles/CustomeHooks/adminUser1';
+import AdminUser2 from './MyFiles/CustomeHooks/adminUser2';
+import AdminUser from './MyFiles/CustomeHooks/AdminUser';
 const LazyUsereducer4 = lazy(() => import('./MyFiles/Hooks/Usereducer/Usereducer4'));
 const LazyUsestate8 = lazy(() => import('./MyFiles/Hooks/Usestate8'));
 
@@ -230,12 +234,16 @@ const App = () => {
           <Route path='/usereducer19' element={<Usereducer19/>} />
           <Route path='/usereducer19/:userId' element={<User19/>} />
           <Route path='/userpost19' element={<Userpost19/>} />
+          <Route path='/usereducer20' element={<Usereducer20/>} />
           <Route path="/Useexp1" element={<Useexp1/>}/>
           <Route path="/Finalapi1" element={<Finalapi1/>}/>
           <Route path="/Finalapi2" element={<Finalapi2/>}/>
           <Route path='/Employee1' element={<Employee1/>} />
           <Route path='/Employee2' element={<Employee2/>} />
           <Route path='/UseEmp' element={<UseEmp/>} />
+          <Route path='/adminuser1' element={<AdminUser1/>} />
+          <Route path='/adminuser2' element={<AdminUser2/>} />
+          <Route path='/adminuse' element={<AdminUser/>} />
           <Route path="/Usereducer4" element={<LazyUsereducer4/>}/>
           <Route path="/Useref1" element={<Useref1/>}/>
           <Route path="/Useref2" element={<Useref2/>}/>
