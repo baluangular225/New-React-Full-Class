@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Loader from "../../images/Loading-img.gif"
+import { Link, useNavigate } from "react-router-dom";
 
 const Usestate100 = () =>{
 
@@ -12,6 +13,10 @@ const Usestate100 = () =>{
  const [name, setName] = useState('');
  const [email, setEmail] = useState('');
  const [website, setWebsite] = useState('');
+ const [showForm, setShowForm] = useState(false);
+ const [errorForm, setErrorForm] = useState(false);
+
+ const navigate = useNavigate();
 
  const fecthApi = async (apiUrl) =>{
     setIsLoading(true);
@@ -54,7 +59,9 @@ const Usestate100 = () =>{
     setEditId(id);
     setName(name);
     setEmail(email);
-    setWebsite(website)
+    setWebsite(website);
+    setShowForm(true);
+
     await fetch(`https://jsonplaceholder.typicode.com/users/${id}`,{
         method:'PUT',
         headers:{
@@ -72,6 +79,50 @@ const Usestate100 = () =>{
     })
  }
 
+ const updateData = async () =>{
+
+   if(!name || !email || !website){
+    setErrorForm('All input fields or Required');
+    return
+   }
+
+   setErrorForm(false);
+
+    const allVendorData ={
+        name:name,
+        email:email,
+        website:website
+    }
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${editId}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type' : 'Application/json'
+        },
+        body: JSON.stringify(allVendorData)
+        })
+        if(!response.ok){
+            const updateData = await response.json();
+            throw new Error(updateData.message || 'Failed VendorData Updating')
+        }
+        const Todos = vendorData.map((eachVendor)=>{
+            if(eachVendor.id === editId){
+                return{...eachVendor, ...allVendorData}
+            }else{
+                return eachVendor
+            }
+        })
+        setVendorData(Todos);
+        setEditId(null);
+        setName('');
+        setEmail('');
+        setWebsite('');
+        setShowForm(false);
+    } catch (error) {
+        console.log('Error Message Update VendorData', error)
+    }
+ }
+
  useEffect(()=>{
    fecthApi('https://jsonplaceholder.typicode.com/users')
  },[])
@@ -87,12 +138,16 @@ const Usestate100 = () =>{
         <div>
             <Header/>
               <div className="container">
+
+                {showForm && (
                 <div className="shadow p-3 mt-4 mb-3">
                     <input type="text" className="form-control mb-2" name="name" value={name} onChange={(e)=> setName(e.target.value)} />
                     <input type="email" className="form-control mb-2" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
                     <input type="text" className="form-control mb-2" name="website" value={website} onChange={(e)=> setWebsite(e.target.value)} />
-                    <input type="submit" className="btn btn-primary mb-2" />
+                    {errorForm && <p style={{color:'red'}}>{errorForm}</p>}
+                    <input type="submit" className="btn btn-primary mb-2" onClick={()=> updateData(editId)} />
                 </div>
+                )}
 
                  <div className="row">
                     {
@@ -107,6 +162,8 @@ const Usestate100 = () =>{
                                         <div className="d-grid gap-0 d-md-flex justify-content-md-end">
                                             <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
                                             <button className="btn btn-info rounded-0" onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
+                                            <button className="btn btn-success rounded-0" onClick={()=> navigate('/Usepost100')}>Post</button>
+                                            <Link className="btn btn-primary rounded-0" to={`/Usestate100/${eachVendor.id}`}>Details</Link>
                                         </div>
                                     </div>
                                 </div>
