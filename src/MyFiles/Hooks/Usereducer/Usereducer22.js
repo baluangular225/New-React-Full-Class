@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import Header from "../../../Components/Header";
 import Footer from "../../../Components/Footer";
 import Loader from "../../../images/Loading-img.gif"
+import { Link } from "react-router-dom";
 
 const Usereducer22 = () =>{
 
@@ -129,6 +130,7 @@ const Usereducer22 = () =>{
                                         <div className="d-grid gap-0 d-md-flex justify-content-md-end">
                                             <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
                                             <button className="btn btn-info rounded-0" onClick={()=> dispatch({type:"ONCLICK_EDIT", payLoad:({status:true, id:id, name, email, website})})} >Edit</button>
+                                            <Link className="btn btn-success rounded-0" to={`/Usereducer22/${eachVendor.id}`}>Details</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +150,7 @@ const EditForm = ({id, comingName, comingEmail, comingWebsite, updateData}) =>{
  const [email, setEmail] = useState(comingEmail || '');
  const [website, setWebsite] = useState(comingWebsite || '');
 
- 
+
  const handleUpdate = () =>{
     if(!name || !email || !website){
         alert('All input fields or required');
