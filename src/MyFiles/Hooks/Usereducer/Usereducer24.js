@@ -2,10 +2,12 @@ import React, { useEffect, useReducer, useState } from "react";
 import Header from "../../../Components/Header";
 import Footer from "../../../Components/Footer";
 import Loader from "../../../images/Loading-img.gif"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Usereducer24 = () =>{
+
+    const navigate = useNavigate();
 
     const reducer = (state, action) =>{
 
@@ -134,6 +136,7 @@ const Usereducer24 = () =>{
                                         <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
                                         <button className="btn btn-info rounded-0" onClick={()=> dispatch({type:'ONCLICK_EDIT', payLoad:({status:true, id:id, name, email, website})})}>Edit</button>
                                         <Link className="btn btn-primary rounded-0" to={`/Usereducer24/${eachData.id}`}>Details</Link>
+                                        <button className="btn btn-success rounded-0" onClick={()=> navigate(`/Userpost24`)}>Post</button>
                                     </div>
                                 </div>
                             </div>

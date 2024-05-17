@@ -102,7 +102,7 @@ const Usestate113 = () =>{
         })
         if(!response.ok){
             const data = await response.json();
-            throw new Error(data.message || 'Failed Vendor DatA')
+            throw new Error(data.message || 'Failed Vendor Data')
         }
         const Todos = myVendor.map((eachVendor)=>{
             if(eachVendor.id === editId){
