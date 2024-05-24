@@ -265,6 +265,18 @@
       "name": "Pratice Dialy",
       "email": "praticedaily@gmail.com",
       "website": "pratice.org"
+    },
+    {
+      "id": "d9d1",
+      "name": "React Local Data",
+      "email": "reactlocaldata@gmail.com",
+      "website": "reactlocal.org"
+    },
+    {
+      "id": "10d2",
+      "name": "React Data ",
+      "email": "reactdata@capgemini.com",
+      "website": "reactdata.org"
     }
   ],
   "Employes": [
