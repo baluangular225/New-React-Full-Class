@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Loader from "../../images/Loading-img.gif"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Usestate115 = () =>{
 
@@ -14,7 +14,8 @@ const Usestate115 = () =>{
     const [email, setEmail] = useState('');
     const [website, setwebsite] = useState('');
     const [showForm, setShowForm] = useState(false);
-    const [validation, setValidation] = useState(false)
+    const [validation, setValidation] = useState(false);
+    const navigate = useNavigate();
 
     const fetchApi = async (apiUrl) =>{
         setIsLoading(true);
@@ -162,6 +163,7 @@ const Usestate115 = () =>{
                                             <button className="btn btn-danger rounded-0" onClick={()=> handleDelete(id)}>Delete</button>
                                             <button className="btn btn-info rounded-0" onClick={()=> handleEdit(id, name, email, website)}>Edit</button>
                                             <Link className="btn btn-success rounded-0" to={`/Usestate115/${eachAdmin.id}`}>Details</Link>
+                                            <button className="btn btn-primary rounded-0" onClick={()=> navigate(`/Usepost115`)}>Post</button>
                                         </div>
                                     </div>
                                 </div>
