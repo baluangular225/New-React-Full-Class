@@ -48,7 +48,7 @@ const Usepost116 = () =>{
         <div>
             <Header/>
                <div className="container">
-                  <h3>Usepost116 Component</h3>
+                  <h3 className="mt-3">Usepost116 Component</h3>
 
                  <div className="shadow p-3 mb-3 mt-4">
                     <form onSubmit={formSubmit}>
